@@ -73,7 +73,7 @@ describe('favourite blog', () => {
   };
 
   test('of an empty array', () => {
-    expect(favouriteBlog([])).toBe(0);
+    expect(favouriteBlog([])).toBe(undefined);
   });
 
   test('of a single blog in the list', () => {

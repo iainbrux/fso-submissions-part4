@@ -13,12 +13,9 @@ const totalLikes = arrayOfBlogs => {
 
 const favouriteBlog = arrayOfBlogs => {
   if(!arrayOfBlogs.length) {
-    return 0;
+    return undefined;
   }
-  const mostLikedBlog = Math.max(...arrayOfBlogs.map(blog => blog.likes));
-  const favourite = arrayOfBlogs.find(blog => blog.likes === mostLikedBlog);
-  console.log('Favourite blog: ', favourite);
-  return favourite;
+  return arrayOfBlogs.find(blog => blog.likes === Math.max(...arrayOfBlogs.map(blog => blog.likes)));
 };
 
 module.exports = {
