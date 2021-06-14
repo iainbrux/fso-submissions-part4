@@ -9,9 +9,11 @@
   "scripts": {
     "run": "node index.js",
     "dev": "nodemon index.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "jest --verbose"
   },
   "devDependencies": {
-    "eslint": "^7.28.0"
+    "eslint": "^7.28.0",
+    "jest": "^27.0.4"
   }
 }
