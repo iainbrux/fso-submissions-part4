@@ -72,15 +72,31 @@ describe('favourite blog', () => {
     __v: 0
   };
 
-  test('of an empty array', () => {
-    expect(favouriteBlog([])).toBe(undefined);
-  });
-
   test('of a single blog in the list', () => {
     expect(favouriteBlog(singleBlog)).toEqual(validator);
   });
 
   test('in a list of blogs', () => {
     expect(favouriteBlog(blogs)).toEqual(validator);
+  });
+
+  test('with an argument that isn\'t an Array returns an Error', () => {
+    expect(favouriteBlog('Gello')).toEqual(Error('Argument must be passed an array'));
+  });
+
+  test('with an argument that is an Object returns an Error', () => {
+    expect(favouriteBlog(new Object())).toEqual(Error('Argument must be passed an array'));
+  });
+
+  test('with no argument passed returns an Error', () => {
+    expect(favouriteBlog()).toEqual(Error('An Array argument must be provided'));
+  });
+
+  test('with a false argument returns an Error', () => {
+    expect(favouriteBlog(undefined || null || false)).toEqual(Error('An Array argument must be provided'));
+  });
+
+  test('with a true boolean argument return an Error', () => {
+    expect(favouriteBlog(true)).toEqual(Error('An Array argument must be provided'));
   });
 });
